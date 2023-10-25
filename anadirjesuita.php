@@ -1,16 +1,13 @@
-<?php
-            $id = $_POST["id"];
-            $nombre = $_POST["nombre"];
-            $firma = $_POST["firma"];
-        
-            include("jesuita.php");
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "parajesuitas";
-
-            $crud = new crudJesuita($servername, $username, $password, $database);
-
-            $crud->anadir($id, $nombre, $firma)
-
-    ?>
+<?php
+            $id = $_POST["id"];
+            $nombre = $_POST["nombre"];
+            $firma = $_POST["firma"];
+        
+            include("jesuita.php");
+            include("conexion.php");
+
+            $crud = new crudJesuita($host, $username, $passwd, $bdname);
+
+            echo $crud->anadir($id, $nombre, $firma);
+
+?>

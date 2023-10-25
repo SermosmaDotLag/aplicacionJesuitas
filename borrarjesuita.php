@@ -1,13 +1,10 @@
-<?php
-            $id = $_POST["id"];
-        
-            include("jesuita.php");
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "parajesuitas";
-
-            $crud = new crudJesuita($servername, $username, $password, $database);
-
-            $crud->borrar($id)
-    ?>
+<?php
+            $id = $_POST["id"];
+        
+            include("jesuita.php");
+            include("conexion.php");
+
+            $crud = new crudJesuita($host, $username, $passwd, $bdname);
+
+            echo $crud->borrar($id)
+?>
