@@ -11,6 +11,6 @@
 
             $crud = new crudJesuita($servername, $username, $password, $database);
 
-            $crud->actualizar($id, $nombre, $firma)
+            $crud->actualizar($id)
 
     ?>

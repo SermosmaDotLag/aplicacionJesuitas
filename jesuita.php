@@ -33,15 +33,14 @@
             $registros = array();
     
             if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $registros[] = $row;
-                }
+                $row = $result->fetch_assoc();
             }
     
-            return $registros;
+            return $row;
         }
     
-        public function actualizar($id, $nombre, $firma) {
+        public function actualizar($id, $nombre = null, $firma = null) {
+            $this->consultarUnJesuita($id);
             $sql = "UPDATE jesuita SET nombre='$nombre', firma='$firma' WHERE idJesuita='$id'";
             if ($this->conexion->query($sql) === TRUE) {
                 return "Jesuita actualizado con éxito.";
